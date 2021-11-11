@@ -4,15 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+   <com.google.android.material.appbar.AppBarLayout
+       android:id="@+id/appBar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="parent"
+       >
+       <TextView
+           android:id="@+id/appBarTitle"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:padding="20dp"
+           android:gravity="center"
+           android:textSize="20sp"
+           android:textColor="@color/white"
+           android:text="@string/no_item"
+           />
+       <com.google.android.material.textfield.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+
+           >
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/filterEditText"
+               android:layout_width="100dp"
+               android:layout_gravity="center"
+               android:layout_height="50dp"
+               android:layout_margin="10dp"
+               android:background="@color/white"
+               android:inputType="numberDecimal"
+               android:hint="@string/filter_hint"
+               android:gravity="center"
+               android:cursorVisible="false"
+               android:maxLength="3"/>
+       </com.google.android.material.textfield.TextInputLayout>
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/startStopButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="16sp"
+           android:textColor="@color/black"
+           android:text="@string/start"
+           app:cornerRadius="20dp"
+           app:backgroundTint="@color/white"
+           android:layout_margin="10dp"/>
+   </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feedRecycler"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/white"
+        android:layout_marginTop="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

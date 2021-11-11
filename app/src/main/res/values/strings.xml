@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">motiv8aiHA</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="filter_hint">Filter</string>
+    <string name="no_item">No Item</string>
 </resources>
