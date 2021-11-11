@@ -1,11 +1,10 @@
 package com.safelevel.motiv8aiha.ui.activity
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.safelevel.motiv8aiha.R
+import com.safelevel.motiv8aiha.ext.afterTextChanged
 import com.safelevel.motiv8aiha.ui.adapter.FeedRecyclerAdapter
 import com.safelevel.motiv8aiha.ui.customview.ShakeItemsLinearLayoutManager
 import com.safelevel.motiv8aiha.viewmodel.MainViewModel
@@ -37,23 +36,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeFilter() {
-        filterEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                val filter = p0?.also {
-                    try {
-                        val weight = p0.toString().toDouble()
-                        viewModel.setFilter(weight)
-                    } catch (e: Exception) {
-                    }
-                }
-                if(filter.toString().isEmpty()){
-                    viewModel.setFilter(Double.MAX_VALUE)
+        filterEditText.afterTextChanged {
+            val filter = it.also {
+                try {
+                    val weight = it.toDouble()
+                    viewModel.setFilter(weight)
+                } catch (e: Exception) {
                 }
             }
-
-            override fun afterTextChanged(p0: Editable?) {}
-        })
+            if(filter.isEmpty()){
+                viewModel.setFilter(Double.MAX_VALUE)
+            }
+        }
     }
 
     private fun observeFeed() {
