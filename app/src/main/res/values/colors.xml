@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="LightGrey">#D3D3D3</color>
     <color name="transLightGrey">#33D3D3D3</color>
+    <color name="gradient_start_color">#020024</color>
+    <color name="gradient_end_color">#115ede</color>
 </resources>

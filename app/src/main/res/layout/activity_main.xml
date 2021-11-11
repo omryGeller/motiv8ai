@@ -11,6 +11,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        app:layout_constraintTop_toTopOf="parent"
+       android:background="@drawable/background_gradient"
        >
        <TextView
            android:id="@+id/appBarTitle"
@@ -23,21 +24,19 @@
            android:text="@string/no_item"
            />
        <com.google.android.material.textfield.TextInputLayout
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-
+           android:layout_gravity="center"
            >
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/filterEditText"
                android:layout_width="100dp"
                android:layout_gravity="center"
                android:layout_height="50dp"
-               android:layout_margin="10dp"
                android:background="@color/white"
                android:inputType="numberDecimal"
                android:hint="@string/filter_hint"
                android:gravity="center"
-               android:cursorVisible="false"
                android:maxLength="3"/>
        </com.google.android.material.textfield.TextInputLayout>
        <com.google.android.material.button.MaterialButton
@@ -49,7 +48,8 @@
            android:text="@string/start"
            app:cornerRadius="20dp"
            app:backgroundTint="@color/white"
-           android:layout_margin="10dp"/>
+           android:layout_margin="10dp"
+           />
    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
