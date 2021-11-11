@@ -40,12 +40,15 @@ class MainActivity : AppCompatActivity() {
         filterEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                p0?.let {
+                val filter = p0?.also {
                     try {
                         val weight = p0.toString().toDouble()
                         viewModel.setFilter(weight)
                     } catch (e: Exception) {
                     }
+                }
+                if(filter.toString().isEmpty()){
+                    viewModel.setFilter(Double.MAX_VALUE)
                 }
             }
 
